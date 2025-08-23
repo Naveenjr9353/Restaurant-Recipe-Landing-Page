@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chef's Kitchen</title>
+  <link rel="stylesheet" href="../src/output.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.274);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+    }
+    .modal:target {
+      display: flex;
+    }
+    .modal-box {
+      background-color: #0f0e0eeb;
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 90%;
+      max-width: 400px;
+      color: white;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      text-decoration: none;
+      font-size: 1.5rem;
+      color: #ed5d47e1;
+      font-weight: bold;
+    }
+    .input-style {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1rem;
+      border: 1px solid white;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,0.1);
+      color: white;
+    }
+    .btn-style {
+      background-color: #ed5d47e1;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+    .main{
+      display: flex;
+      justify-content: space-around;
+      height: 100px;
+      width: 100%;
+      align-items: center;
+      position: relative;
+      z-index: 60;
+    }
+  </style>
+</head>
+<body class="bg-white">
+
+  <nav class="main">
+    <div class="flex justify-around h-[50px] w-[300px] items-center">
+      <img src="https://themewagon.github.io/chefs-kitchen-nextjs-free/images/logo/Logo.svg" alt="" />
+      <h1 class="text-3xl text-black font-semibold">Chef's Kitchen</h1>
+    </div>
+    <div class="flex justify-around h-[50px] w-[450px] items-center">
+      <li class="list-none"><a href="#" class="text-gray-500 hover:text-[#ed5d47e1] font-semibold text-[25px]">Home</a></li>
+      <li class="list-none"><a href="#" class="text-gray-500 hover:text-[#ed5d47e1] font-semibold text-[25px]">About Us</a></li>
+      <li class="list-none"><a href="#" class="text-gray-500 hover:text-[#ed5d47e1] font-semibold text-[25px]">Recipe</a></li>
+      <li class="list-none"><a href="#" class="text-gray-500 font-semibold text-[25px] hover:text-[#ed5d47e1]">Gallery</a></li>
+    </div>
+    <div class="flex justify-around h-[50px] w-[250px] items-center">
+      <a href="#signinModal"><button class="rounded-full border-[2px] border-[#ed5d47e1] bg-[#ed5d47e1] hover:bg-white hover:text-[#ed5d47e1] p-[10px] w-[100px] font-extrabold text-white">Sign In</button></a>
+      <a href="#signupModal"><button class="rounded-full border-[2px] bg-white hover:bg-[#ed5d47e1] hover:text-white font-extrabold border-[#ed5d47e1] text-[#ed5d47e1] p-[10px] w-[100px]">Sign Up</button></a>
+    </div>
+  </nav>
+
+  <main class="h-[700px] w-full flex justify-around items-center">
+    <div class="h-[500px] w-[600px] text-black flex-col items-center justify-evenly flex">
+      <h1 class="font-bold text-7xl">Cook anything with the experts</h1>
+      <p class="font-semibold text-[25px] text-gray-500">
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+      </p>
+      <div class="h-[100px] w-[600px] relative bottom-[20px] text-black flex justify-around items-center">
+        <button class="rounded-full bg-[#ed5d47e1] hover:bg-white hover:text-[#ed5d47e1] p-[10px] w-[200px] font-bold border-[#ed5d47e1] text-white border-[2px]">Lets cook</button>
+        <button class="rounded-full bg-white hover:bg-[#ed5d47e1] hover:text-white p-[10px] w-[200px] font-bold text-[#ed5d47e1] border-[#ed5d47e1] border-[2px]">Explore Now</button>
+      </div>
+    </div>
+    <div class="bg-[url('https://themewagon.github.io/chefs-kitchen-nextjs-free/images/hero/banner-image.png')] h-[500px] w-[600px] bg-no-repeat bg-[length:600px_500px]"></div>
+  </main>
+
+  <!-- Sign In Modal -->
+  <div id="signinModal" class="modal">
+    <div class="modal-box">
+      <a href="#" class="close-btn">✕</a>
+
+      <div class="flex justify-around h-[50px] w-full items-center mb-4">
+        <img src="https://themewagon.github.io/chefs-kitchen-nextjs-free/images/logo/Logo.svg" alt="" class="h-[40px] w-[40px]">
+        <h1 class="text-3xl text-white font-semibold">Chef's Kitchen</h1>
+      </div>
+
+      <div class="flex justify-center gap-4 mb-4">
+        <button class="px-4 py-2 bg-[#ed5d47e1] rounded font-semibold">Sign In <i class="fa-brands fa-google text-white"></i></button>
+        <button class="px-4 py-2 bg-[#ed5d47e1] rounded font-semibold">Sign In <i class="fa-brands fa-github text-white"></i></button>
+      </div>
+      
+      <p class="text-white font-semibold text-center mb-4">OR</p>
+      <form autocomplete="off" class="flex flex-col items-center">
+        <input type="email" placeholder="Email" required class="input-style" />
+        <input type="password" placeholder="Password" required class="input-style" />
+        <button class="btn-style">Sign In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sign Up Modal -->
+  <div id="signupModal" class="modal">
+    <div class="modal-box">
+      <a href="#" class="close-btn">✕</a>
+
+      <div class="flex justify-around h-[50px] w-full items-center mb-4">
+        <img src="https://themewagon.github.io/chefs-kitchen-nextjs-free/images/logo/Logo.svg" alt="" class="h-[40px] w-[40px]">
+        <h1 class="text-3xl text-white font-semibold">Chef's Kitchen</h1>
+      </div>
+
+      <div class="flex justify-center gap-4 mb-4">
+        <button class="px-4 py-2 bg-[#ed5d47e1] rounded font-semibold">
+          Sign Up <i class="fa-brands fa-google text-white"></i>
+        </button>
+        <button class="px-4 py-2 bg-[#ed5d47e1] rounded font-semibold">
+          Sign Up <i class="fa-brands fa-github text-white"></i>
+        </button>
+      </div>
+      <p class="text-white font-semibold text-center mb-4">OR</p>
+
+      <form autocomplete="off" class="flex flex-col items-center">
+        <input type="text" placeholder="Name" required class="input-style" />
+        <input type="email" placeholder="Email" required class="input-style" />
+        <input type="password" placeholder="Password" required class="input-style" />
+        <button class="btn-style">Sign Up</button>
+      </form>
+
+      <p class="text-white text-sm mt-4 text-center">
+        By creating an account, you agree with our 
+        <span class="text-[#ed5d47e1]">Privacy</span> and 
+        <span class="text-[#ed5d47e1]">Policy</span>.
+      </p>
+    </div>
+  </div> 
+</body>
+</html>
